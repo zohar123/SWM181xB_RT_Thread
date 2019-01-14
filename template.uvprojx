@@ -48,14 +48,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\out\</OutputDirectory>
-          <OutputName>SWM181_stdperiph_lib</OutputName>
+          <OutputDirectory>.\build\</OutputDirectory>
+          <OutputName>rtthread</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\out\</ListingPath>
+          <ListingPath>.\build\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -82,7 +82,7 @@
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name>fromelf --bin -o "$L@L.bin" "#L"</UserProg1Name>
+            <UserProg1Name>fromelf --bin !L --output @H.bin</UserProg1Name>
             <UserProg2Name>fromelf --text -a -c -o "$L@L.asm" "#L"</UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\CSL\CMSIS\CoreSupport;.\CSL\CMSIS\DeviceSupport;.\CSL\SWM181_StdPeriph_Driver</IncludePath>
+              <IncludePath>.\applications;.;.\drivers;.\Libraries\CMSIS\CoreSupport;.\Libraries\CMSIS\DeviceSupport;.\Libraries\SWM181_StdPeriph_Driver;.\rt-thread\include;.\rt-thread\libcpu\arm\cortex-m0;.\rt-thread\libcpu\arm\common;.\rt-thread\components\dfs\include;.\rt-thread\components\dfs\filesystems\devfs;.\rt-thread\components\dfs\filesystems\elmfat;.\rt-thread\components\drivers\include;.\rt-thread\components\drivers\spi;.\rt-thread\components\finsh;.\rt-thread\components\libc\compilers\armlibc;.\rt-thread\components\libc\compilers\common</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

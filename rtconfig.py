@@ -9,7 +9,7 @@ if os.getenv('RTT_CC'):
     CROSS_TOOL = os.getenv('RTT_CC')
 # device options
 ARCH = 'arm'
-CPU = 'cortex-m4'
+CPU = 'cortex-m0'
 FPU = 'fpv4-sp-d16'
 FLOAT_ABI = 'softfp'
 

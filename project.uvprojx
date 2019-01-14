@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>rt-thread</TargetName>
+      <TargetName>SWM181</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
@@ -83,7 +83,7 @@
             <RunUserProg1>1</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
             <UserProg1Name>fromelf --bin !L --output @H.bin</UserProg1Name>
-            <UserProg2Name></UserProg2Name>
+            <UserProg2Name>fromelf --text -a -c -o "$L@L.asm" "#L"</UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
             <nStopA1X>0</nStopA1X>
@@ -134,10 +134,10 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4096</DriverSelection>
+            <DriverSelection>4099</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\UL2CM3.DLL</Flash2>
+          <Flash2>Segger\JL2CM3.dll</Flash2>
           <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
@@ -187,7 +187,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -311,10 +311,10 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>2</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
-            <OneElfS>1</OneElfS>
+            <OneElfS>0</OneElfS>
             <Strict>0</Strict>
             <EnumInt>0</EnumInt>
             <PlainCh>0</PlainCh>
@@ -323,13 +323,13 @@
             <wLevel>0</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>1</uC99>
+            <uC99>0</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
-            <v6Lang>0</v6Lang>
-            <v6LangP>0</v6LangP>
-            <vShortEn>0</vShortEn>
-            <vShortWch>0</vShortWch>
+            <v6Lang>1</v6Lang>
+            <v6LangP>1</v6LangP>
+            <vShortEn>1</vShortEn>
+            <vShortWch>1</vShortWch>
             <v6Lto>0</v6Lto>
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define>RT_USING_ARM_LIBC</Define>
               <Undefine></Undefine>
-              <IncludePath>applications;.;drivers;Libraries\CMSIS\CoreSupport;Libraries\CMSIS\DeviceSupport;.\Libraries\SWM181_StdPeriph_Driver;rt-thread\include;rt-thread\libcpu\arm\cortex-m4;rt-thread\libcpu\arm\common;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\finsh;rt-thread\components\libc\compilers\armlibc;rt-thread\components\libc\compilers\common</IncludePath>
+              <IncludePath>applications;.;drivers;Libraries\CMSIS\CoreSupport;Libraries\CMSIS\DeviceSupport;Libraries\SWM181_StdPeriph_Driver;rt-thread\include;rt-thread\libcpu\arm\cortex-m0;rt-thread\libcpu\arm\common;rt-thread\components\dfs\include;rt-thread\components\dfs\filesystems\devfs;rt-thread\components\dfs\filesystems\elmfat;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\spi;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\finsh;rt-thread\components\libc\compilers\armlibc;rt-thread\components\libc\compilers\common</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -359,16 +359,16 @@
             </VariousControls>
           </Aads>
           <LDads>
-            <umfTarg>0</umfTarg>
+            <umfTarg>1</umfTarg>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
             <noStLib>0</noStLib>
             <RepFail>1</RepFail>
             <useFile>0</useFile>
             <TextAddressRange>0x00000000</TextAddressRange>
-            <DataAddressRange>0x20000000</DataAddressRange>
+            <DataAddressRange>0x00000000</DataAddressRange>
             <pXoBase></pXoBase>
-            <ScatterFile>.\drivers\linker_scripts\link.sct</ScatterFile>
+            <ScatterFile></ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc> --keep *.o(.rti_fn.*)   --keep *.o(FSymTab) --keep *.o(VSymTab) </Misc>
@@ -407,119 +407,119 @@
           <GroupName>Libraries</GroupName>
           <Files>
             <File>
+              <FileName>system_SWM181.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>Libraries\CMSIS\DeviceSupport\system_SWM181.c</FilePath>
+            </File>
+            <File>
               <FileName>SWM181_adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_adc.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_adc.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_cache.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_cache.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_cache.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_can.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_can.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_can.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_cmp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_cmp.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_cmp.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_cordic.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_cordic.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_cordic.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_div.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_div.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_div.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_dma.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_dma.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_dma.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_exti.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_exti.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_exti.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_flash.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_flash.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_gpio.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_gpio.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_i2c.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_i2c.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_i2c.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_irqmux.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_irqmux.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_irqmux.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_port.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_port.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_port.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_pwm.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_pwm.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_pwm.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_sdadc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_sdadc.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_sdadc.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_slcd.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_slcd.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_slcd.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_sleep.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_sleep.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_sleep.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_spi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_spi.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_spi.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_timr.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_timr.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_timr.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_uart.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_uart.c</FilePath>
             </File>
             <File>
               <FileName>SWM181_wdt.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\SWM181_StdPeriph_Driver\SWM181_wdt.c</FilePath>
-            </File>
-            <File>
-              <FileName>system_SWM181.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Libraries\CMSIS\DeviceSupport\system_SWM181.c</FilePath>
+              <FilePath>Libraries\SWM181_StdPeriph_Driver\SWM181_wdt.c</FilePath>
             </File>
             <File>
               <FileName>startup_SWM181.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\Libraries\CMSIS\DeviceSupport\startup\arm\startup_SWM181.s</FilePath>
+              <FilePath>Libraries\CMSIS\DeviceSupport\startup\arm\startup_SWM181.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -614,22 +614,201 @@
             <File>
               <FileName>cpuport.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\rt-thread\libcpu\arm\cortex-m0\cpuport.c</FilePath>
+              <FilePath>rt-thread\libcpu\arm\cortex-m0\cpuport.c</FilePath>
             </File>
             <File>
               <FileName>context_rvds.S</FileName>
               <FileType>2</FileType>
-              <FilePath>.\rt-thread\libcpu\arm\cortex-m0\context_rvds.S</FilePath>
+              <FilePath>rt-thread\libcpu\arm\cortex-m0\context_rvds.S</FilePath>
+            </File>
+            <File>
+              <FileName>backtrace.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\libcpu\arm\common\backtrace.c</FilePath>
+            </File>
+            <File>
+              <FileName>div0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\libcpu\arm\common\div0.c</FilePath>
+            </File>
+            <File>
+              <FileName>showmem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\libcpu\arm\common\showmem.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Filesystem</GroupName>
+          <Files>
+            <File>
+              <FileName>dfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\dfs\src\dfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\dfs\src\dfs_file.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_fs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\dfs\src\dfs_fs.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_posix.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\dfs\src\dfs_posix.c</FilePath>
+            </File>
+            <File>
+              <FileName>devfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\dfs\filesystems\devfs\devfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_elm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\dfs\filesystems\elmfat\dfs_elm.c</FilePath>
+            </File>
+            <File>
+              <FileName>ff.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\dfs\filesystems\elmfat\ff.c</FilePath>
+            </File>
+            <File>
+              <FileName>ccsbcs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\dfs\filesystems\elmfat\option\ccsbcs.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
           <GroupName>DeviceDrivers</GroupName>
+          <GroupOption>
+            <CommonProperty>
+              <UseCPPCompiler>0</UseCPPCompiler>
+              <RVCTCodeConst>0</RVCTCodeConst>
+              <RVCTZI>0</RVCTZI>
+              <RVCTOtherData>0</RVCTOtherData>
+              <ModuleSelection>0</ModuleSelection>
+              <IncludeInBuild>1</IncludeInBuild>
+              <AlwaysBuild>0</AlwaysBuild>
+              <GenerateAssemblyFile>0</GenerateAssemblyFile>
+              <AssembleAssemblyFile>0</AssembleAssemblyFile>
+              <PublicsOnly>0</PublicsOnly>
+              <StopOnExitCode>3</StopOnExitCode>
+              <CustomArgument></CustomArgument>
+              <IncludeLibraryModules></IncludeLibraryModules>
+              <ComprImg>0</ComprImg>
+            </CommonProperty>
+            <GroupArmAds>
+              <Cads>
+                <interw>2</interw>
+                <Optim>0</Optim>
+                <oTime>2</oTime>
+                <SplitLS>2</SplitLS>
+                <OneElfS>2</OneElfS>
+                <Strict>2</Strict>
+                <EnumInt>2</EnumInt>
+                <PlainCh>2</PlainCh>
+                <Ropi>2</Ropi>
+                <Rwpi>2</Rwpi>
+                <wLevel>0</wLevel>
+                <uThumb>2</uThumb>
+                <uSurpInc>2</uSurpInc>
+                <uC99>2</uC99>
+                <uGnu>2</uGnu>
+                <useXO>2</useXO>
+                <v6Lang>0</v6Lang>
+                <v6LangP>0</v6LangP>
+                <vShortEn>2</vShortEn>
+                <vShortWch>2</vShortWch>
+                <v6Lto>2</v6Lto>
+                <v6WtE>2</v6WtE>
+                <v6Rtti>2</v6Rtti>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define> </Define>
+                  <Undefine> </Undefine>
+                  <IncludePath> </IncludePath>
+                </VariousControls>
+              </Cads>
+              <Aads>
+                <interw>2</interw>
+                <Ropi>2</Ropi>
+                <Rwpi>2</Rwpi>
+                <thumb>2</thumb>
+                <SplitLS>2</SplitLS>
+                <SwStkChk>2</SwStkChk>
+                <NoWarn>2</NoWarn>
+                <uSurpInc>2</uSurpInc>
+                <useXO>2</useXO>
+                <uClangAs>2</uClangAs>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath></IncludePath>
+                </VariousControls>
+              </Aads>
+            </GroupArmAds>
+          </GroupOption>
           <Files>
+            <File>
+              <FileName>hwtimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\hwtimer\hwtimer.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c_core.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\i2c\i2c_core.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c_dev.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\i2c\i2c_dev.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c-bit-ops.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\i2c\i2c-bit-ops.c</FilePath>
+            </File>
+            <File>
+              <FileName>pin.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\misc\pin.c</FilePath>
+            </File>
+            <File>
+              <FileName>rt_drv_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\misc\rt_drv_pwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>mtd_nor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\mtd\mtd_nor.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\rtc\rtc.c</FilePath>
+            </File>
             <File>
               <FileName>serial.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\serial\serial.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi_core.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\spi\spi_core.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi_dev.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\spi\spi_dev.c</FilePath>
             </File>
             <File>
               <FileName>completion.c</FileName>
@@ -665,6 +844,11 @@
               <FileName>workqueue.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\src\workqueue.c</FilePath>
+            </File>
+            <File>
+              <FileName>watchdog.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\watchdog\watchdog.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -765,6 +949,11 @@
               <FileName>mem_std.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\libc\compilers\armlibc\mem_std.c</FilePath>
+            </File>
+            <File>
+              <FileName>stdio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\libc\compilers\armlibc\stdio.c</FilePath>
             </File>
             <File>
               <FileName>stubs.c</FileName>
