@@ -1,37 +1,11 @@
-# SWXT-LQ100-32102 V1.1 板级支持包 说明
+# SWM181xB 芯片 说明
 
-标签： SYNWIT、Cortex-M4、SWM320VET7、国产MCU
+标签： SYNWIT、Cortex-M0、SWM181xB、国产MCU
 
 ---
 
 ## 1. 简介
 
-本文档为 SWXT-LQ100-32102 V1.1 的 BSP(板级支持包) 说明。
-
-通过阅读本文档，开发者可以快速地上手该 BSP，将 RT-Thread 运行在开发板上。
-
-### 1.1  开发板介绍
-
-SWXT-LQ100-32102 V1.1 开发板由华芯微特提供，可满足基础测试及高端开发需求。
-
-开发板外观如下图所示：
-
-SWXT_LQ100-32102 V1.1
-
-![SWXT-LQ100-32102](figures/SWXT-LQ100-32102.jpg "SWXT-LQ100-32102 V1.1")
-
-SWXT-LQ100-32102 V1.1 开发板板载资源如下：
-
-- MCU：SWM320VET7-50  ARM 32-bit Cortex-M4，主频 120MHz，512KB FLASH ，128KB SRAM，2.2～3.6V
-- 常用外设
-  - LED：1 个，D2 红绿蓝三色LED
-  - 按键：3 个，K1、K2、K3
-  - Nor Flash S29GL128M
-  - SRAM IS62WV51216BLL
-- 常用接口：USB打印接口，TFT LCD接口，SD卡接口
-- 调试接口：SWD
-
-更多详细信息请咨询[华芯微特技术支持][5]
 
 ### 1.2  MCU 简介
 
@@ -39,11 +13,11 @@ SWM320VET7 是 SYNWIT 公司的一款面向工业控制、白色家电、电机�
 
 | 硬件 | 描述 |
 | -- | -- |
-|芯片型号| SWM320VET7 |
-|CPU| ARM Cortex-M4 |
-|主频| 120MHz |
-|片内SRAM| 128KB |
-|片内Flash|  512KB |
+|芯片型号| SWM181xB |
+|CPU| ARM Cortex-M0 |
+|主频| 48MHz |
+|片内SRAM| 16KB |
+|片内Flash|  120KB |
 
 ## 2. 编译说明
 
@@ -89,25 +63,7 @@ msh />
 
 ## 4. 驱动支持情况及计划
 
-|**板载外设**     |**支持情况**|**备注**                    |
-| ----------------- | :----------: | ----------------------- |
-| Nor Flash         | 支持          |                        |
-| SDIO TF 卡        | 暂不支持      |                        |
-| SRAM              | 支持          |      |
-| TFT-LCD           |   暂不支持    |   即将支持             |
-|**片上外设**     |**支持情况** |**备注**                  |
-| GPIO              |     支持     | PIN：1...100 |
-| UART              |     支持     | UART0 / UART1 / UART2 / UART3               |
-| SPI               |     支持     | SPI0 / SPI1        |
-| I2C               |   支持   |    I2C0 IO模拟   |
-| ADC               | 暂不支持 | 即将支持 |
-| PWM               |   支持   | PWM0 / PWM1 / PWM2 / PWM3 / PWM4 / PWM5                           |
-| IWG               |   支持   |                            |
-| TIMER             |   支持   |                            |
-| RTC               |   支持   |                            |
-| CAN               |   暂不支持   |   即将支持              |
-|**板外外设**     |**支持情况**|**备注**     |
-| Arduino 扩展接口 |   暂不支持   |        |
+
 
 ## 5. 联系人信息
 

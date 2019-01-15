@@ -36,5 +36,6 @@ tags
 
 *.uvguix.lizha
 *.pyc
+*.scvd
 JLinkSettings.ini
 JLinkLog.txt
