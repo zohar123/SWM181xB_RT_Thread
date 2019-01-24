@@ -114,11 +114,11 @@ static int swm260_uart_getc(struct rt_serial_device *serial)
 }
 
 static const struct rt_uart_ops swm260_uart_ops =
-    {
-        swm260_uart_configure,
-        swm260_uart_control,
-        swm260_uart_putc,
-        swm260_uart_getc,
+{
+    swm260_uart_configure,
+    swm260_uart_control,
+    swm260_uart_putc,
+    swm260_uart_getc,
 };
 
 #if defined(BSP_USING_UART0)

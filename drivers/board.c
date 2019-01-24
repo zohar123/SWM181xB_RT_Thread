@@ -19,12 +19,16 @@ static void bsp_clock_config(void)
     SysTick_Config(SystemCoreClock / RT_TICK_PER_SECOND);
     SysTick->CTRL |= 0x00000004UL;
 }
+
+unsigned int SEGGER_SYSVIEW_TickCnt;
+
 void SysTick_Handler(void)
 {
     /* enter interrupt */
     rt_interrupt_enter();
 
     rt_tick_increase();
+    SEGGER_SYSVIEW_TickCnt++;
 
     /* leave interrupt */
     rt_interrupt_leave();

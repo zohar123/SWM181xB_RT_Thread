@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>SWM181xB</Device>
           <Vendor>Synwit</Vendor>
-          <PackID>Synwit.SWM32_DFP.1.6.8</PackID>
+          <PackID>Synwit.SWM32_DFP.1.8.1</PackID>
           <PackURL>http://www.synwit.com/pack</PackURL>
           <Cpu>IRAM(0x20000000,0x4000) IROM(0x00000000,0x1E000) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define>RT_USING_ARM_LIBC</Define>
               <Undefine></Undefine>
-              <IncludePath>applications;.;drivers;Libraries\CMSIS\CoreSupport;Libraries\CMSIS\DeviceSupport;Libraries\SWM181_StdPeriph_Driver;rt-thread\include;rt-thread\libcpu\arm\cortex-m0;rt-thread\libcpu\arm\common;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\finsh;rt-thread\components\libc\compilers\armlibc;rt-thread\components\libc\compilers\common</IncludePath>
+              <IncludePath>applications;.;drivers;Libraries\CMSIS\CoreSupport;Libraries\CMSIS\DeviceSupport;Libraries\SWM181_StdPeriph_Driver;packages\SystemView-latest;packages\SystemView-latest\SystemView_Src\Config;packages\SystemView-latest;packages\SystemView-latest\SystemView_Src\SEGGER;rt-thread\include;rt-thread\libcpu\arm\cortex-m0;rt-thread\libcpu\arm\common;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\finsh;rt-thread\components\libc\compilers\armlibc;rt-thread\components\libc\compilers\common</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -520,6 +520,36 @@
               <FileName>startup_SWM181.s</FileName>
               <FileType>2</FileType>
               <FilePath>Libraries\CMSIS\DeviceSupport\startup\arm\startup_SWM181.s</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>trace</GroupName>
+          <Files>
+            <File>
+              <FileName>SEGGER_RTT_Device.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\SystemView-latest\SystemView_Src\Config\SEGGER_RTT_Device.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_SYSVIEW_Config_RTThread.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\SystemView-latest\SystemView_Src\Config\SEGGER_SYSVIEW_Config_RTThread.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_SYSVIEW_RTThread.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\SystemView-latest\SystemView_Src\Config\SEGGER_SYSVIEW_RTThread.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_RTT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\SystemView-latest\SystemView_Src\SEGGER\SEGGER_RTT.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_SYSVIEW.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\SystemView-latest\SystemView_Src\SEGGER\SEGGER_SYSVIEW.c</FilePath>
             </File>
           </Files>
         </Group>
